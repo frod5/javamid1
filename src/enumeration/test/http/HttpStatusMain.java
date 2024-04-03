@@ -1,0 +1,19 @@
+package enumeration.test.http;
+
+import java.util.Scanner;
+
+public class HttpStatusMain {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("HTTP CODE : ");
+		int inputCode = sc.nextInt();
+		HttpStatus status = HttpStatus.findByCode(inputCode);
+
+		if(status == null) {
+			System.out.println("정의 되지 않은 코드");
+		} else {
+			System.out.println(status.getCode() + " " + status.getMessage());
+			System.out.println("isSuccess: " + status.isSuccess());
+		}
+	}
+}
